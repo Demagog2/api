@@ -1,3 +1,219 @@
-HOST: http://api.demagog.cz
+FORMAT: 1A
+HOST: http://www.google.com
 
---- Demagog.cz API ---
+# Demagog
+REST API for mobile apps.
+
+# Group Articles
+## Articles Collection [api/v1/articles{?limit}{?olderthan}]
+
++ Parameters
+    + limit (optional, number, `10`) ... maximum number of returned items
+    + olderthan (optional, long, 1393496667000) ... requesting older articles published before this date (Unix epoch time in milliseconds)
+
+### List articles [GET]
++ Response 200 (application/json)
+
+        [
+           {
+              "id" : 585,
+              "type":"analysis"
+              "title":"Stav slovenskej ekonomiky",
+              "image":"www.image.com/fe45fe44",
+              "perex":"Demagog.SK overil len jednu z nedeľných diskusných relácií a postupne svoje sily presúvame na overovanie prezidentských kandidátov.",
+              "publishedAt":1393496667000,
+              "politicians":[
+                 {
+                    "id":45545,
+                    "name":"Jozef Kollár",
+                    "image":"www.image.com/454545",
+                    "party":"SaS"
+                 }
+              ]
+           }
+        ]
+        
+## Article [api/v1/articles/{id}]
+A single Article object with all its details
+
++ Parameters
+    + id (required, number, `1`) ... Numeric `id` of article
+
+### Retrieve a Article [GET]
++ Response 200 (application/json)
+    
+        {
+           "title":"Stav slovenskej ekonomiky",
+           "image":"www.image.com/fe45fe44",
+           "text":"Demagog.SK overil len jednu z nedeľných diskusných relácií a postupne svoje sily presúvame na overovanie prezidentských kandidátov. Kažimír a Kollár diskutovali o nových číslach z Inštitútu finančnej politiky, predovšetkým o medzere vo výbere DPH. Kollár tieto čísla nemal presne naštudované, správne ho...",
+           "publishedAt":1393496667000,
+           "politicians":[
+              {
+                 "id":45545,
+                 "name":"Jozef Kollár",
+                 "image":"www.image.com/454545",
+                 "party":"SaS",
+                 "statistics":{
+                    "true":12,
+                    "untrue":58,
+                    "misleading":22,
+                    "unverifiable":5
+                 },
+                 "statements":[
+                    {
+                       "id":4554,
+                       "important":false,
+                       "text":"Keď sa bavíme o nezosobášených pároch, existuje 21 zákonov, kde nemôžu požívať rovnaké výhody ako manželia.",
+                       "evaluation":"untrue"
+                    }
+                 ]
+              }
+           ],
+           "source":{
+              "name":"O 5 minút 12",
+              "date":1393496667000,
+              "host":"Martin Strižinec",
+              "url":"www.blabla.com/bla"
+           }
+        }
+
+
+
+
+# Group Statements
+## Statements Collection [api/v1/statements{?party}{?politician}{?limit}{?olderthan}]
+
++ Parameters
+    + party (optional, id, `1`) ... filter only statements of specified party
+    + politician (optional, id, `1`) ... filter only statements of specified politician
+    + limit (optional, id, `10`) ... maximum number of returned items
+    + olderthan (optional, string, 1393496667000) ... requesting older statements published before this date
+
+### List statements [GET]
++ Response 200 (application/json)
+
+        [
+           {
+              "id":4554,
+              "important":false,
+              "text":"Keď sa bavíme o nezosobášených pároch, existuje 21 zákonov, kde nemôžu požívať rovnaké výhody ako manželia.",
+              "evaluation":"untrue",
+              "publishedAt":1393496667000,
+              "politician":{
+                 "id":45545,
+                 "name":"Jozef Kollár",
+                 "image":"www.image.com/454545",
+                 "party":"SaS"
+              },
+              "source":{
+                 "name":"O 5 minút 12",
+                 "date":"2014-01-10 21:00:03"
+              }
+           }
+        ]
+        
+## Statement [api/v1/statements/{id}]
+A single Statement object with all its details
+
++ Parameters
+    + id (required, number, `1`) ... id of statement
+
+### Retrieve a statement [GET]
++ Response 200 (application/json)
+
+        [
+           {
+              "id":4554,
+              "important":false,
+              "text":"Keď sa bavíme o nezosobášených pároch, existuje 21 zákonov, kde nemôžu požívať rovnaké výhody ako manželia.",
+              "evaluation":"untrue",
+              "publishedAt":1393496667000,
+              "politician":{
+                 "id":45545,
+                 "name":"Jozef Kollár",
+                 "image":"www.image.com/454545",
+                 "party":"SaS"
+              },
+              "source":{
+                 "name":"O 5 minút 12",
+                 "date":"2014-01-10 21:00:03",
+                 "host":"Martin Strižinec",
+                 "url":"www.blabla.com/bla"
+              },
+              "explanation":"Na základe údajov z Eurostatu nie je viditeľná výrazná zmena v pôrodnosti, či rozvodovosti v krajinách, ktoré prijali inštitút úradného manželstva, registrovaného partnerstva alebo podobný právny inštitút. Z tohto dôvodu hodnotíme výrok za pravdivý..."
+           }
+        ]
+
+
+
+
+# Group Parties
+## Parties Collection [api/v1/parties]
+### List all parties [GET]
++ Response 200 (application/json)
+
+        [
+           {
+              "id":4,
+              "name":"SaS",
+              "image":"www.internet.com/saslogo.jpg",
+              "statistics":{
+                 "true":12,
+                 "untrue":58,
+                 "misleading":22,
+                 "unverifiable":5
+              }
+           }
+        ]
+
+
+
+
+
+# Group Politicians
+## Politicians Collection [api/v1/politicians{?party}]
+
++ Parameters
+    + party (required, id, `1`) ... filter only politicians of specified party
+
+### List politicians [GET]
++ Response 200 (application/json)
+
+        [
+           {
+              "id":4,
+              "party":"SaS",
+              "membersCount":52
+              "name":"Martin Poliačik",
+              "image":"www.image.com/ffefe",
+              "statistics":{
+                 "true":12,
+                 "untrue":58,
+                 "misleading":22,
+                 "unverifiable":5
+              }
+           }
+        ]
+
+## Politician [api/v1/politicians/{id}]
+A single politician object with all its details
+
++ Parameters
+    + id (required, number, `1`) ... id
+
+### Retrieve a politician [GET]
++ Response 200 (application/json)
+
+        {
+          "id":4,
+          "party":"SaS",
+          "name":"Martin Poliačik",
+          "image":"www.image.com/ffefe",
+          "statistics":{
+             "true":12,
+             "untrue":58,
+             "misleading":22,
+             "unverifiable":5
+          }
+        }
+
