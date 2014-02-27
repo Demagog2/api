@@ -5,11 +5,11 @@ HOST: http://www.google.com
 REST API for mobile apps.
 
 # Group Articles
-## Articles Collection [api/v1/articles{?limit}{?olderthan}]
+## Articles Collection [/api/v1/articles{?limit}{?olderthan}]
 
 + Parameters
     + limit (optional, number, `10`) ... maximum number of returned items
-    + olderthan (optional, long, 1393496667000) ... requesting older articles published before this date (Unix epoch time in milliseconds)
+    + olderthan (optional, long, `1393496667000`) ... requesting older articles published before this date (Unix epoch time in milliseconds)
 
 ### List articles [GET]
 + Response 200 (application/json)
@@ -33,7 +33,7 @@ REST API for mobile apps.
            }
         ]
         
-## Article [api/v1/articles/{id}]
+## Article [/api/v1/articles/{id}]
 A single Article object with all its details
 
 + Parameters
@@ -81,13 +81,13 @@ A single Article object with all its details
 
 
 # Group Statements
-## Statements Collection [api/v1/statements{?party}{?politician}{?limit}{?olderthan}]
+## Statements Collection [/api/v1/statements{?party}{?politician}{?limit}{?olderthan}]
 
 + Parameters
     + party (optional, id, `1`) ... filter only statements of specified party
     + politician (optional, id, `1`) ... filter only statements of specified politician
     + limit (optional, id, `10`) ... maximum number of returned items
-    + olderthan (optional, string, 1393496667000) ... requesting older statements published before this date
+    + olderthan (optional, string, `1393496667000`) ... requesting older statements published before this date
 
 ### List statements [GET]
 + Response 200 (application/json)
@@ -112,7 +112,7 @@ A single Article object with all its details
            }
         ]
         
-## Statement [api/v1/statements/{id}]
+## Statement [/api/v1/statements/{id}]
 A single Statement object with all its details
 
 + Parameters
@@ -148,7 +148,7 @@ A single Statement object with all its details
 
 
 # Group Parties
-## Parties Collection [api/v1/parties]
+## Parties Collection [/api/v1/parties]
 ### List all parties [GET]
 + Response 200 (application/json)
 
@@ -171,7 +171,7 @@ A single Statement object with all its details
 
 
 # Group Politicians
-## Politicians Collection [api/v1/politicians{?party}]
+## Politicians Collection [/api/v1/politicians{?party}]
 
 + Parameters
     + party (required, id, `1`) ... filter only politicians of specified party
@@ -195,7 +195,7 @@ A single Statement object with all its details
            }
         ]
 
-## Politician [api/v1/politicians/{id}]
+## Politician [/api/v1/politicians/{id}]
 A single politician object with all its details
 
 + Parameters
