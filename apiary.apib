@@ -9,7 +9,7 @@ REST API for mobile apps.
 
 + Parameters
     + limit (optional, number, `10`) ... maximum number of returned items
-    + olderthan (optional, long, `1393496667000`) ... requesting older articles published before this date (Unix epoch time in milliseconds)
+    + olderthan (optional, long, `1393927929`) ... requesting older articles published before this date (Unix epoch time in seconds)
 
 ### List articles [GET]
 + Response 200 (application/json)
@@ -21,7 +21,7 @@ REST API for mobile apps.
               "title":"Stav slovenskej ekonomiky",
               "image":"www.image.com/fe45fe44",
               "perex":"Demagog.SK overil len jednu z nedeľných diskusných relácií a postupne svoje sily presúvame na overovanie prezidentských kandidátov.",
-              "publishedAt":1393496667000,
+              "publishedAt":1393927929,
               "politicians":[
                  {
                     "id":45545,
@@ -46,7 +46,7 @@ A single Article object with all its details
            "title":"Stav slovenskej ekonomiky",
            "image":"www.image.com/fe45fe44",
            "text":"Demagog.SK overil len jednu z nedeľných diskusných relácií a postupne svoje sily presúvame na overovanie prezidentských kandidátov. Kažimír a Kollár diskutovali o nových číslach z Inštitútu finančnej politiky, predovšetkým o medzere vo výbere DPH. Kollár tieto čísla nemal presne naštudované, správne ho...",
-           "publishedAt":1393496667000,
+           "publishedAt":1393927929,
            "politicians":[
               {
                  "id":45545,
@@ -71,7 +71,7 @@ A single Article object with all its details
            ],
            "source":{
               "name":"O 5 minút 12",
-              "date":1393496667000,
+              "date":1393927929,
               "host":"Martin Strižinec",
               "url":"www.blabla.com/bla"
            }
@@ -87,7 +87,7 @@ A single Article object with all its details
     + party (optional, id, `1`) ... filter only statements of specified party
     + politician (optional, id, `1`) ... filter only statements of specified politician
     + limit (optional, id, `10`) ... maximum number of returned items
-    + olderthan (optional, string, `1393496667000`) ... requesting older statements published before this date
+    + olderthan (optional, string, `1393927929`) ... requesting older statements published before this date
 
 ### List statements [GET]
 + Response 200 (application/json)
@@ -98,7 +98,7 @@ A single Article object with all its details
               "important":false,
               "text":"Keď sa bavíme o nezosobášených pároch, existuje 21 zákonov, kde nemôžu požívať rovnaké výhody ako manželia.",
               "evaluation":"untrue",
-              "publishedAt":1393496667000,
+              "publishedAt":1393927929,
               "politician":{
                  "id":45545,
                  "name":"Jozef Kollár",
@@ -107,7 +107,7 @@ A single Article object with all its details
               },
               "source":{
                  "name":"O 5 minút 12",
-                 "date":"2014-01-10 21:00:03"
+                 "date":"1393927929"
               }
            }
         ]
@@ -127,7 +127,7 @@ A single Statement object with all its details
               "important":false,
               "text":"Keď sa bavíme o nezosobášených pároch, existuje 21 zákonov, kde nemôžu požívať rovnaké výhody ako manželia.",
               "evaluation":"untrue",
-              "publishedAt":1393496667000,
+              "publishedAt":1393927929,
               "politician":{
                  "id":45545,
                  "name":"Jozef Kollár",
@@ -136,7 +136,7 @@ A single Statement object with all its details
               },
               "source":{
                  "name":"O 5 minút 12",
-                 "date":"2014-01-10 21:00:03",
+                 "date":"1393927929",
                  "host":"Martin Strižinec",
                  "url":"www.blabla.com/bla"
               },
