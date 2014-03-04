@@ -16,18 +16,35 @@ REST API for mobile apps.
 
         [
            {
-              "id" : 585,
-              "type":"analysis"
+              "id":585,
+              "type":"discussion",
               "title":"Stav slovenskej ekonomiky",
-              "image":"www.image.com/fe45fe44",
+              "image":"http://www.demagog.sk/data/diskusia/s/139267094974.jpg",
               "perex":"Demagog.SK overil len jednu z nedeľných diskusných relácií a postupne svoje sily presúvame na overovanie prezidentských kandidátov.",
               "publishedAt":1393927929,
               "politicians":[
                  {
                     "id":45545,
                     "name":"Jozef Kollár",
-                    "image":"www.image.com/454545",
-                    "party":"SaS"
+                    "image":"http://www.demagog.sk/data/politik/t/130545286325.jpg",
+                    "statistics":{
+                       "true":12,
+                       "untrue":58,
+                       "misleading":22,
+                       "unverifiable":5
+                    },
+                    "party":{
+                       "id":4,
+                       "name":"SaS",
+                       "image":"http://www.demagog.sk/data/politicke_strany/t/1290591022.jpg",
+                       "membersCount":52,
+                       "statistics":{
+                          "true":12,
+                          "untrue":58,
+                          "misleading":22,
+                          "unverifiable":5
+                       }
+                    }
                  }
               ]
            }
@@ -44,15 +61,26 @@ A single Article object with all its details
     
         {
            "title":"Stav slovenskej ekonomiky",
-           "image":"www.image.com/fe45fe44",
+           "image":"http://www.demagog.sk/data/diskusia/s/139267094974.jpg",
            "text":"Demagog.SK overil len jednu z nedeľných diskusných relácií a postupne svoje sily presúvame na overovanie prezidentských kandidátov. Kažimír a Kollár diskutovali o nových číslach z Inštitútu finančnej politiky, predovšetkým o medzere vo výbere DPH. Kollár tieto čísla nemal presne naštudované, správne ho...",
            "publishedAt":1393927929,
            "politicians":[
               {
                  "id":45545,
                  "name":"Jozef Kollár",
-                 "image":"www.image.com/454545",
-                 "party":"SaS",
+                 "image":"http://www.demagog.sk/data/politik/t/130545286325.jpg",
+                 "party":{
+                    "id":4,
+                    "name":"SaS",
+                    "image":"http://www.demagog.sk/data/politicke_strany/t/1290591022.jpg",
+                    "membersCount":52,
+                    "statistics":{
+                       "true":12,
+                       "untrue":58,
+                       "misleading":22,
+                       "unverifiable":5
+                    }
+                 },
                  "statistics":{
                     "true":12,
                     "untrue":58,
@@ -102,12 +130,25 @@ A single Article object with all its details
               "politician":{
                  "id":45545,
                  "name":"Jozef Kollár",
-                 "image":"www.image.com/454545",
-                 "party":"SaS"
+                 "image":"http://www.demagog.sk/data/politik/t/130545286325.jpg",
+                 "party":{
+                       "id":4,
+                       "name":"SaS",
+                       "image":"http://www.demagog.sk/data/politicke_strany/t/1290591022.jpg",
+                       "membersCount":52,
+                       "statistics":{
+                          "true":12,
+                          "untrue":58,
+                          "misleading":22,
+                          "unverifiable":5
+                       }
+                    }
               },
               "source":{
                  "name":"O 5 minút 12",
-                 "date":"1393927929"
+                 "date":1393927929,
+                 "host":"Martin Strižinec",
+                 "url":"www.blabla.com/bla"
               }
            }
         ]
@@ -131,8 +172,19 @@ A single Statement object with all its details
               "politician":{
                  "id":45545,
                  "name":"Jozef Kollár",
-                 "image":"www.image.com/454545",
-                 "party":"SaS"
+                 "image":"http://www.demagog.sk/data/politik/t/130545286325.jpg",
+                 "party":{
+                       "id":4,
+                       "name":"SaS",
+                       "image":"http://www.demagog.sk/data/politicke_strany/t/1290591022.jpg",
+                       "membersCount":52,
+                       "statistics":{
+                          "true":12,
+                          "untrue":58,
+                          "misleading":22,
+                          "unverifiable":5
+                       }
+                    }
               },
               "source":{
                  "name":"O 5 minút 12",
@@ -156,7 +208,7 @@ A single Statement object with all its details
            {
               "id":4,
               "name":"SaS",
-              "image":"www.internet.com/saslogo.jpg",
+              "image":"http://www.demagog.sk/data/politicke_strany/t/1290591022.jpg",
               "membersCount":52,
               "statistics":{
                  "true":12,
@@ -185,7 +237,7 @@ A single Statement object with all its details
               "id":4,
               "party":"SaS",
               "name":"Martin Poliačik",
-              "image":"www.image.com/ffefe",
+              "image":"http://www.demagog.sk/data/politik/t/130545286325.jpg",
               "statistics":{
                  "true":12,
                  "untrue":58,
@@ -208,7 +260,7 @@ A single politician object with all its details
           "id":4,
           "party":"SaS",
           "name":"Martin Poliačik",
-          "image":"www.image.com/ffefe",
+          "image":"http://www.demagog.sk/data/politik/t/130545286325.jpg",
           "statistics":{
              "true":12,
              "untrue":58,
