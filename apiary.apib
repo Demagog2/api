@@ -110,12 +110,13 @@ A single Article object with all its details
 
 
 # Group Statements
-## Statements Collection [/api/v1/statements{?party}{?politician}{?limit}{?olderthan}]
+## Statements Collection [/api/v1/statements{?party}{?politician}{?important}{?limit}{?olderthan}]
 
 + Parameters
-    + party (optional, id, `1`) ... filter only statements of specified party
-    + politician (optional, id, `1`) ... filter only statements of specified politician
-    + limit (optional, id, `10`) ... maximum number of returned items
+    + party (optional, long, `1`) ... filter only statements of specified party
+    + politician (optional, long, `1`) ... filter only statements of specified politician
+    + limit (optional, long, `10`) ... maximum number of returned items
+    + important (optional, bool, `true`) ... filter only important statements
     + olderthan (optional, string, `1393927929`) ... requesting older statements published before this date
 
 ### List statements [GET]
