@@ -236,7 +236,6 @@ A single Statement object with all its details
         [
            {
               "id":4,
-              "party":"SaS",
               "name":"Martin Poliačik",
               "image":"http://www.demagog.sk/data/politik/t/130545286325.jpg",
               "statistics":{
@@ -244,6 +243,18 @@ A single Statement object with all its details
                  "untrue":58,
                  "misleading":22,
                  "unverifiable":5
+              },
+              "party":{
+                 "id":4,
+                 "name":"SaS",
+                 "image":"http://www.demagog.sk/data/politicke_strany/t/1290591022.jpg",
+                 "membersCount":52,
+                 "statistics":{
+                    "true":12,
+                    "untrue":58,
+                    "misleading":22,
+                    "unverifiable":5
+                 }
               }
            }
         ]
@@ -258,15 +269,26 @@ A single politician object with all its details
 + Response 200 (application/json)
 
         {
-          "id":4,
-          "party":"SaS",
-          "name":"Martin Poliačik",
-          "image":"http://www.demagog.sk/data/politik/t/130545286325.jpg",
-          "statistics":{
-             "true":12,
-             "untrue":58,
-             "misleading":22,
-             "unverifiable":5
-          }
+           "id":4,
+           "name":"Martin Poliačik",
+           "image":"http://www.demagog.sk/data/politik/t/130545286325.jpg",
+           "statistics":{
+              "true":12,
+              "untrue":58,
+              "misleading":22,
+              "unverifiable":5
+           },
+           "party":{
+              "id":4,
+              "name":"SaS",
+              "image":"http://www.demagog.sk/data/politicke_strany/t/1290591022.jpg",
+              "membersCount":52,
+              "statistics":{
+                 "true":12,
+                 "untrue":58,
+                 "misleading":22,
+                 "unverifiable":5
+              }
+           }
         }
 
