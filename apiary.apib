@@ -16,43 +16,46 @@ REST API for mobile apps.
 ### List articles [GET]
 + Response 200 (application/json)
 
-        [
-           {
-              "id":585,
-              "type":"discussion",
-              "title":"Stav slovenskej ekonomiky",
-              "image":"http://www.demagog.sk/data/diskusia/s/139267094974.jpg",
-              "perex":"Demagog.SK overil len jednu z nedeľných diskusných relácií a postupne svoje sily presúvame na overovanie prezidentských kandidátov.",
-              "publishedAt":1393927929,
-              "politicians":[
-                 {
-                    "id":45545,
-                    "name":"Jozef Kollár",
-                    "image":"http://www.demagog.sk/data/politik/t/130545286325.jpg",
-                    "statistics":{
-                       "true":12,
-                       "untrue":58,
-                       "misleading":22,
-                       "unverifiable":5
-                    },
-                    "party":{
-                       "id":4,
-                       "name":"Sloboda a Solidarita",
-                       "shortName":"SaS",
-                       "image":"http://www.demagog.sk/data/politicke_strany/t/1290591022.jpg",
-                       "membersCount":52,
-                       "statistics":{
-                          "true":12,
-                          "untrue":58,
-                          "misleading":22,
-                          "unverifiable":5
-                       }
-                    }
-                 }
-              ]
-           },
-           "resultsCount"=25
-        ]
+        {
+            "total":25,
+            "articles":[
+                {
+                  "id":585,
+                  "type":"discussion",
+                  "title":"Stav slovenskej ekonomiky",
+                  "image":"http://www.demagog.sk/data/diskusia/s/139267094974.jpg",
+                  "perex":"Demagog.SK overil len jednu z nedeľných diskusných relácií a postupne svoje sily presúvame na overovanie prezidentských kandidátov.",
+                  "publishedAt":1393927929,
+                  "politicians":[
+                     {
+                        "id":45545,
+                        "name":"Jozef Kollár",
+                        "image":"http://www.demagog.sk/data/politik/t/130545286325.jpg",
+                        "profile":"http://www.demagog.sk/politici/45545/jozef-kollar",
+                        "statistics":{
+                           "true":12,
+                           "untrue":58,
+                           "misleading":22,
+                           "unverifiable":5
+                        },
+                        "party":{
+                           "id":4,
+                           "name":"Sloboda a Solidarita",
+                           "shortName":"SaS",
+                           "image":"http://www.demagog.sk/data/politicke_strany/t/1290591022.jpg",
+                           "membersCount":52,
+                           "statistics":{
+                              "true":12,
+                              "untrue":58,
+                              "misleading":22,
+                              "unverifiable":5
+                           }
+                        }
+                     }
+                  ]
+                }
+            ]
+        }
         
 ## Article [/api/v1/articles/{id}]
 A single Article object with all its details
@@ -74,6 +77,7 @@ A single Article object with all its details
                  "id":45545,
                  "name":"Jozef Kollár",
                  "image":"http://www.demagog.sk/data/politik/t/130545286325.jpg",
+                 "profile":"http://www.demagog.sk/politici/45545/jozef-kollar",
                  "party":{
                     "id":4,
                     "name":"Sloboda a Solidarita",
@@ -115,14 +119,16 @@ A single Article object with all its details
 
 
 # Group Statements
-## Statements Collection [/api/v1/statements{?party}{?politician}{?type}{?limit}{?olderthan}]
+## Statements Collection [/api/v1/statements{?party}{?politician}{?tag}{?type}{?limit}{?olderthan}{?newerthan}]
 
 + Parameters
     + party (optional, long, `1`) ... filter only statements of specified party
     + politician (optional, long, `1`) ... filter only statements of specified politician
+    + tag (optional, string, `eu`) ... filter only statements of specified tag
     + type (optional, enum, `important`) ... filter articles by importance. This can have 2 values: all, important. All is default when this parameter is not sent.
     + limit (optional, long, `10`) ... maximum number of returned items. Default is 10
     + olderthan (optional, long-Unix epoch time in seconds, `1393927929`) ... requesting newest statements published before this date, publishedAt <= olderthan
+    + newerthan (optional, long-Unix epoch time in seconds, `1393927929`) ... requesting newest statements published after this date, publishedAt > newerthan
 
 ### List statements [GET]
 + Response 200 (application/json)
@@ -139,6 +145,7 @@ A single Article object with all its details
                  "id":45545,
                  "name":"Jozef Kollár",
                  "image":"http://www.demagog.sk/data/politik/t/130545286325.jpg",
+                 "profile":"http://www.demagog.sk/politici/45545/jozef-kollar",
                  "party":{
                        "id":4,
                        "name":"Sloboda a Solidarita",
@@ -183,6 +190,7 @@ A single Statement object with all its details
                  "id":45545,
                  "name":"Jozef Kollár",
                  "image":"http://www.demagog.sk/data/politik/t/130545286325.jpg",
+                 "profile":"http://www.demagog.sk/politici/45545/jozef-kollar",
                  "party":{
                        "id":4,
                        "name":"Sloboda a Solidarita",
@@ -248,6 +256,7 @@ A single Statement object with all its details
               "id":4,
               "name":"Martin Poliačik",
               "image":"http://www.demagog.sk/data/politik/t/130545286325.jpg",
+              "profile":"http://www.demagog.sk/politici/4/martin-poliacik",
               "statistics":{
                  "true":12,
                  "untrue":58,
@@ -283,6 +292,7 @@ A single politician object with all its details
            "id":4,
            "name":"Martin Poliačik",
            "image":"http://www.demagog.sk/data/politik/t/130545286325.jpg",
+           "profile":"http://www.demagog.sk/politici/4/martin-poliacik",
            "statistics":{
               "true":12,
               "untrue":58,
@@ -303,4 +313,3 @@ A single politician object with all its details
               }
            }
         }
-
