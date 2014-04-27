@@ -5,7 +5,7 @@ HOST: http://www.google.com
 REST API for mobile apps.
 
 # Group Articles
-## Articles Collection [/api/v1/articles{?limit}{?olderthan}{?newerthan}{?includeedited}]
+## Articles Collection [/api/v1/articles{?limit,olderthan,newerthan,includeedited}]
 
 + Parameters
     + limit (optional, number, `10`) ... maximum number of returned items. Default is 10
@@ -119,7 +119,7 @@ A single Article object with all its details
 
 
 # Group Statements
-## Statements Collection [/api/v1/statements{?party}{?politician}{?tag}{?type}{?limit}{?olderthan}{?newerthan}]
+## Statements Collection [/api/v1/statements{?party,politician,tag,type,limit,olderthan,newerthan}]
 
 + Parameters
     + party (optional, long, `1`) ... filter only statements of specified party
