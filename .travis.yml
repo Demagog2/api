@@ -1,0 +1,5 @@
+language: php
+install:
+  - npm install api-blueprint-validator
+script:
+  - node_modules/.bin/api-blueprint-validator apiary.apib
